@@ -224,15 +224,15 @@ fn process_file(in_path: &Path, out_dir: &Path, n_tiles: usize) -> Result<(), IO
 
 
 fn main() {
-    let fp = Path::new("C:/delivery_data/innowind/raster/raster.dat");
+    let fp = Path::new("datadir/raster/raster.dat");
     let f = File::open(fp).unwrap();
 
-    let west_path = Path::new("C:/delivery_data/innowind/raster/west.dat");
-    let east_path = Path::new("C:/delivery_data/innowind/raster/east.dat");
+    let west_path = Path::new("datadir/raster/west.dat");
+    let east_path = Path::new("datadir/raster/east.dat");
     split_files(&f, &west_path, &east_path).unwrap();
 
-    let east_dir = Path::new("C:/delivery_data/innowind/geogrid/east");
-    let west_dir = Path::new("C:/delivery_data/innowind/geogrid/west");
+    let east_dir = Path::new("datadir/geogrid/east");
+    let west_dir = Path::new("datadir/geogrid/west");
     process_file(&west_path, &west_dir, TILE_DIM).unwrap();
     process_file(&east_path, &east_dir, TILE_DIM).unwrap();
 
